@@ -1,0 +1,77 @@
+body{overflow-x:hidden;}
+.margin{width:1200px;margin: 0 auto;}
+header{height:40px;width:100%;background:#f1f1f1;border-bottom: 1px solid #e1e1e1;font:12px/40px "";}
+header .margin{display:flex;justify-content: space-between;}
+header a{margin-right:20px;}
+header .header-l{display:flex;}
+header .header-l span{color: #f01e1e;margin-right:20px;}
+header .header-r{display:flex;}
+header .header-r span{margin:0 5px;}
+header .header-r b{color:#ed3f3f;} 
+header .header-r img{margin-top:-2px;}
+header .header-r .weibo{display:flex;margin-top:7px;width:62px;height:22px;color:#fff;background: url(../images/bg_css.gif);background-position: -63px 0;}
+header .header-r em{display:inline-block;width:16px;margin:3px 0 0 3px;background: url(../images/bg_css.gif);background-position: -190px 0;}
+header .header-r .fText{font:7px/22px "";margin-right:2px;}
+
+#top .margin{display:flex;justify-content: space-between;}
+#top .top-l{margin:15px;}
+#top .top-r{color:rgb(240, 30, 30);margin:15px;}
+#top .top-c{position: relative;margin: 46px 0px 0px 36px;}
+#top .top-c input[type="text"] {outline:none;display: block; float: left; width: 500px;  height: 40px;  font-size: 14px;  font-family: "Microsoft YaHei";  padding-left: 5px;  line-height: 34px; border-width: 3px;border-style: solid; border-color: rgb(237, 63, 63);border-image: initial;}
+#top .top-c input {box-sizing: border-box;font-weight: 400;margin: 0px;padding: 0px;}
+#top .top-c input[type="submit"] {background-color: rgb(237, 63, 63);float: left;width: 120px;height: 40px;color: rgb(255, 255, 255);font-family: SimHei;font-size: 20px;cursor: pointer;border-style: none;}
+#top .top-c .search_type {position: absolute;-webkit-appearance: none;width: 58px;left: 3px;top: 3px;height: 28px;border-width: 0px 1px 0px 0px;background: url(http://ourjs.github.io/static/2015/arrow.png) 100% center no-repeat scroll rgb(241, 241, 241);border-right: 1px solid rgb(225, 225, 225);padding: 0px 2%;margin: 0px;}
+#top .top-c .guanjianci{display:block;width: 620px;height: 16px;margin-top: 46px;}
+#top .top-c .guanjianci a{margin-right:8px;}
+
+
+nav{padding-left: 260px;margin-top:12px auto;}
+nav .margin{overflow: hidden;width: 980px;}
+nav a {font-family: "Microsoft YaHei";color:#000;float: left;  font-size: 18px; font-weight: 900; line-height: 40px; margin-right: 28px;} 
+nav a:hover{color:red;}
+nav .car{ background: url(../images/car_left.png) left no-repeat,url(../images/car_right.png) right no-repeat; font-size: 12px;display:flex; margin-left:20px;}
+nav span{font-weight: 400;}
+nav i { background-image: url(../images/car.png);background-size: 17px 16px;width: 17px;height: 16px;margin: 12px 10px 0px 14px;}
+nav b {font-size:13px;font-weight: 700; color: rgb(237, 63, 63); margin-left:5px;margin-right:12px;}
+
+/* #banner{} */
+#banner .margin{position:relative;}
+#banner .banner-l{width:180px;border:1px solid #ed3f3f;border-right:0;position: absolute;top:-40px;}
+#banner .banner-l h1{background:rgb(237, 63, 63);;font:15px/40px "";color:#fff;padding-left:10px}
+#banner .banner-l ul li{font:700 14px/47px  "";;border-right:1px solid #ed3f3f;padding:0 10px;}
+#banner .banner-l ul li>p:after {content: "";display: block;width: 7px;height: 10px;background-image: url(http://www.cycang.com/Public/build/img/shop/index/cat_more.png?__spriter) ;float: right;margin: 18px 0px;}
+#banner .banner-l ul li .list-car p{font-size: 16px;line-height: 46px;color: rgb(108, 108, 108);font-weight: bolder;border-bottom: 1px solid rgb(225, 225, 225);}
+#banner .banner-l ul li .list-car{display:none;position: absolute; width: 400px;  height: 329px;  top: 39px;  right: -469px;  background-color: rgb(255, 255, 255);  z-index: 10;  border-width: 1px 1px 1px;  border-style: solid solid solid none; border-color: rgb(237, 63, 63) rgb(237, 63, 63) rgb(237, 63, 63); border-image: initial; border-left: none;padding: 0px 34px;}
+#banner .banner-l ul li .list-car a{display:block;}
+#banner .banner-l ul li .list-car div{overflow:hidden;}
+#banner .banner-l ul li .list-car div a{display: block;float: left;font-size:12px;font-weight:500;line-height: 36px;padding-right: 20px;}
+#banner .banner-l ul li:hover{border-right:0;border-top:1px solid #ed3f3f;border-bottom:1px solid #ed3f3f;margin:-1px 1px -1px 0;}
+#banner .banner-l ul li:hover>.list-car{display:block;color:red}
+
+#banner .banner-c{width:848px;height:331px;float:right;background:red;}
+#banner .box{position: relative;overflow: hidden}
+#banner .imgbox{width:848px;height:331px;}
+#banner .imgbox img{width:848px;height:331px;position: absolute;left:848px;top:0;}
+#banner .imgbox img:nth-child(1){left:0;}
+#banner .btns input{width:40px;height:40px;background: rgba(200,200,200,0.5);border: none;position: absolute;top:130px;outline:none;}
+#banner #left{width:40px;height:40px;left:-5px;border-radius:0 100% 100% 0;}
+#banner #right{width:40px;height:40px;right:-5px;border-radius:100% 0 0 100%;}
+
+#banner .banner-r{float:right;}
+#banner .banner-r a{display:block;margin:10px 0 0 10px;}
+
+footer{margin-top:50px;}
+footer .margin{border-top: 1px solid rgb(225, 225, 225);background-color: rgb(241, 241, 241);}
+footer .bottom{width: 1040px;color: rgb(108, 108, 108);padding: 30px 0px 25px;margin: 0px auto;overflow: hidden;}
+footer .bottom ul{float:left;}
+footer .bottom ul li{float: left;margin: 0px 0px 10px;}
+footer .bottom .bottom-right a img{display: block;width: 160px;height: 86px;margin-bottom: 8px;}
+ footer .bottom .bottom-right a p{color: rgb(240, 30, 30);text-align: center;}
+footer .bottom dl{float:left;margin-right:60px;cursor: default;}
+footer .bottom dl dt{font-size:17px;font-weight: 700;margin-bottom:13px;}
+footer .bottom dl dd{cursor: default;font:12px/21px "";}
+footer>p{font:12px/6 "";text-align:center;    color: rgb(108, 108, 108);}
+
+
+
+

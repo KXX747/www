@@ -1,0 +1,177 @@
+.margin{
+	width:1000px;
+	margin:0 auto;
+}
+
+#top{
+    /* border:1px solid red; */
+    position: relative;
+    top:50px;
+    display: inline;
+}
+
+/* #top .logo{
+    width:286px;
+    height:52px;
+} */
+#top .logo2{
+    float: left;
+    display: inline;
+    position: relative;left:170px;
+    bottom: 50px;
+}
+
+#zc-bottom{
+    width: 1000px;
+    background: #fff;
+    border: 1px solid #999;
+    margin-top:80px;
+    margin-left: 200px;
+    /* position: fixed; */
+    
+}
+#zc-bottom .zc-b-t{
+    height:50px;
+    border-bottom:1px solid #999;
+    text-align: center;
+    line-height: 50px;
+}
+#zc-bottom .zc-b-l{
+    font:16px "";
+    color:red;
+     float: left;
+     line-height: 43px;
+     margin-left:10px;
+}
+#zc-bottom .zc-b-r{
+    float:right;
+}
+#zc-bottom .zc-b-r a{
+    margin-left:5px;
+    color:blue;
+    margin-right:10px;
+}
+
+
+/* 表单验证 */
+table{width:600px;
+    padding:10px;
+    margin:50px auto;
+
+}
+td{padding:10px 5px;}
+
+.tex{width:250px;height:30px;border:1px solid #e6e6e6}
+
+.box{position:relative;}
+
+.box span{
+    position:absolute;
+    left:0;
+    top:0;
+    font-size:13.5px;
+    line-height:35px;
+    color:#87868A;
+    text-indent:3px;
+}
+.ts1,
+.ts2,
+.ts3,
+.ts4 {
+    display: block;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+}
+.bigb{
+    width: 270px;
+    height: 50px;
+    background: #fff;
+}
+
+.cont {
+    width: 250px;
+    height: 35px;
+    line-height: 35px;
+    background: #ccc;
+    position: relative;
+    top: 7px;
+    left: 10px;
+}
+
+.bank {
+    width: 35px;
+    height: 100%;
+    background: #7ac23c;
+    position: absolute;
+}
+
+.text {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.btn {
+    width: 35px;
+    height: 33px;
+    border: 1px solid #000;
+    cursor: move;
+    color: #666;
+    position: absolute;
+    text-align: center;
+    font-family: "宋体";
+    background: #fff;
+    user-select: none;
+}
+
+#cbox{
+    width:15px;
+    height:15px;
+}
+.bd{
+    color:#5f91e6;
+}
+a{
+    text-decoration: none;
+}
+b{
+    width:60px;
+    height:20px;
+    cursor: pointer;
+    background:#fff;
+    margin-left: 6px;
+    display: inline-block;
+    font:14px/20px"";
+    color:#ccc;
+    text-align: center;
+}
+#butn {
+    width: 400px;
+    height: 60px;
+    outline: none;
+    border: none;
+    color: aliceblue;
+    font-size: 20px;
+    background: #e6133c;;
+    margin-left: 30px;
+    border-radius: 5px;
+
+    
+}
+
+.tanchu {
+    width: 200px;
+    height: 100px;
+    background: #fff;
+    margin: 0 auto;
+    position: absolute;
+    top: 480px;
+    left: 800px;
+    text-align: center;
+    line-height: 100px;
+    box-shadow: #ccc 0 0 15px;
+    display: none;
+}
+

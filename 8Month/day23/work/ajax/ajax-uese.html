@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 分装的过程：
+    // 重复的代码写出来，不能作为固定的参数
+
+// get请求
+
+    // 因为是分装的函数
+    // data的格式是key1=value1，key2=value2，格式必须是这样写
+
+    function ajaxGET(url,data,success){
+        //1 创建异步对象
+        var xhr = new XMLHttpRequest();
+
+        //2 请求行
+        //2.1 如果用户传入的值为空，所以需要进行判断是否为空
+        if(data){
+            url += "?";
+            url += data;
+        }
+        xhr.open("get",url);
+        //3 请求头 （get可以不写）
+
+        //4 回调函数
+        xhr.onreadystatechange =function(){
+            if(xhr.readyState ==4 && xhr.status==200){
+                //成功之后传入的回调函数
+                success(xhr.responseText);
+                //普通字符串
+                console.log(xhr.responseText);
+                // JSON
+                console.log(JSON.parse(xhr.responseText));
+                //XML
+                console.log(xhr.responseXML);
+            }
+        }
+        //5 请求主体发送数据
+        xhr.send(null);
+    }
+
+
+// post请求
+
+    function ajaxPOST(url,data,success){
+        //1 创建异步对象
+        var xhr = new XMLHttpRequest();
+
+        //2 请求行
+        //2.1 url 这里不需要进行判断，因为post和url没有关系
+        // if(data){
+        //     url += "?";
+        //     url += data;
+        // }
+        xhr.open("post",url);
+        //3 请求头 （get可以不写）
+            // 3.1 有数据才要进行设置
+            if(data){
+                xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            }
+
+        //4 回调函数
+        xhr.onreadystatechange =function(){
+            if(xhr.readyState ==4 && xhr.status==200){
+                //成功之后传入的回调函数
+                console.log(xhr.responseText);
+                success(xhr.responseText);
+            }
+        }
+        //5 请求主体发送数据
+        xhr.send(data);
+    }
+</script>
+</html>

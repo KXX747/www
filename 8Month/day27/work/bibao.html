@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // function fn(){
+    //     var num = 20;
+    //     function fun(){
+    //         console.log(num)
+    //     }
+    //     fun();  //可以获取fn的值 20
+    // }
+    // fn();
+
+    // 2.  fn外面的作用域可以访问fn内部的局部变量
+    // function fn(){
+    //     var num =25;
+    //     // function fun(){
+    //     //     console.log(num);  //不调用不执行
+    //     // }
+    //     // // 函数是数据类型，可以当做参数进行传递
+    //     // return fun;
+    //     return function(){
+    //         console.log(num);
+    //     }
+    // }
+    // var f = fn();// 设置一个变量接收，一执行就会调用fn的函数
+    // f(); //执行f便可调用到fum，得出25
+
+
+    // 类似于这样的执行步骤
+    // var f = function fun(){
+    //         console.log(num);  //不调用不执行
+    //     }
+
+
+
+    // 案例 闭包打车价格
+    // 打车起步价13（3公里），之后每一公里多增加5元钱，用户输入公里数就知道打车价格
+    // 如果有拥堵，都收取10元拥堵费
+
+    var car = (function(){
+        //设置初始价格
+        var start = 13;  //  局部变量
+        var total = 0;  // 总价，  几部变量
+
+        // price yongdu两个函数使用了局部变量的car中的值，产生了闭包
+        return {
+            //判断两个情况  正常总价，拥堵之后的费用
+            price:function(n){  //
+                if(n<=3){
+                    total = start;
+                }else {
+                    total = start+(n-3)*5
+                }
+                return total;
+            },
+            yongdu:function(flag){
+                return flag?(total+10):total;
+            }
+        }
+    })();
+    console.log(car.price(5));//传入一个具体的参数值
+    console.log(car.yongdu(true));
+</script>
+</html>

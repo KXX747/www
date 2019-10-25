@@ -1,0 +1,48 @@
+  <!-- <div class="container">
+        <!-- 上下居中弹性盒 align-items-center row：行  col：列 -->
+        <div class="row align-items-center">
+            <h1 class="col-2">LOGO</h1>
+            <!-- <h4 class="col-3">学生信息手机系统</h4> -->
+            <h4 class="col-3">学生信息收集系统</h4>
+            <!-- bootstrap 中的按钮功能 -->
+            <!-- 需要进行js引入才能够进行 添加出现弹出框 -->
+            <!-- 网站：bootstrap4中文文档--快速入门--找到js进行复制 -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">添加信息</button>
+        </div>
+        <!-- my-5： 上下5 -->
+        <div class="row my-5">
+            <!-- table 表格 thead-inverse 表头效果   .table-striped  条纹行
+        table-bordered  单元格的所有方面添加边框  table-hover 悬停状态 -->
+            <table class="table thead-inverse table-bordered table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>年龄</th>
+                        <th>删除</th>
+                        <th>修改</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DATA</td>
+                        <td>DATA</td>
+                        <td>DATA</td>
+                        <td>DATA</td>
+                        <td><span class="btn btn-info">删除</span></td>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">修改</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row justify-content-center">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">上一页</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">下一页</a></li>
+            </ul>           
+        </div>
+    </div> -->

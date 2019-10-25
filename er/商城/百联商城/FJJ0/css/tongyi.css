@@ -1,0 +1,153 @@
+.margin{width:1800px;margin:0 auto;display: flex;
+	justify-content: space-between;}
+header{
+	background:
+	height:40px;
+	background:#cacaca;
+	overflow:hidden;
+	
+}
+header  a{
+	font:20px/40px "";
+}
+header span{
+	font:20px/40px "";
+}
+
+header .left a{
+	color:#BB0000;
+}
+header .right a.te{
+	color:#BB0000;
+}
+#top{
+	height:140px;
+	display: flex;
+	justify-content: space-around;
+}
+#top .logo img{
+	height:80px;
+	margin:20px 0;
+}
+#top .car img{
+	height:60px;
+	margin:10px 0;
+}
+#top .ss{
+	height:40px;
+	width:500px;
+	border:2px solid #808080;
+	overflow:hidden;
+	margin:20px 0 0 0;
+	border-radius: 5px;
+}
+#top .ss #txt{
+	border :0;
+	float:left;
+	width:420px;
+	height:50px;
+	float:left;
+}
+#top .ss #btn{
+	height:50px;
+	float:left;
+	width:80px;
+
+}
+#top .cx span{
+	font:20px/2 "";
+	margin:0 5px;
+}
+#top .cx span.t{
+	color:#BB0000;
+}
+#nav {
+	display: flex;
+	justify-content: space-around;
+	height:60px;
+	border-bottom: 2px solid #9A0000;
+}
+#nav .nav-l{
+	
+}
+#nav .nav-l h3{
+	background:#212529;
+	height:60px;
+	font:20px/3 "";
+	color:#FFFFFF;
+	width:400px;
+	text-align: center;
+}
+#nav .nav-l ul{
+	
+	
+}
+#nav .nav-c{
+	overflow:hidden;
+}
+#nav .nav-c li{
+	list-style: none;	
+	float:left;
+	margin: 0 20px;
+	font:700 20px/3 "";
+	color:#040505;
+}
+#nav .nav-c li a:hover{
+	color:#BB0000;
+}
+#nav .nav-r{
+	
+}
+#nav .nav-r a{
+	font:700 20px/3 "";
+	background:#80BDFF;
+	color:#FFFFFF;
+}
+main{margin: 0 auto;width:1800px}
+main h5{font:20px/40px "";height:40px;margin-top:20px;}
+main h6{font:20px/40px "";height:40px;margin-top:10px;;text-indent:20px;}
+main .kuang{height:450px;border: 1px solid #cacaca;margin-top:10px;margin-bottom: 20px;width:1200px;}
+main .kuang li{
+	
+}
+main li p {
+	
+	height: 26px;
+	text-indent: 20px;
+	font:16px/20px "";
+}
+main li p.te{
+	
+	margin-top: 10px;
+	font:700 16px/20px "";
+}
+main .agree p{
+	margin-left: 600px;
+	height: 60px;
+	width:100px;
+	background: #9A0000;
+	color: #FFFFFF;
+	text-align: center;
+	font:20px/3 "";
+}
+main .t8{
+	float:right;
+	margin-top: -500px;
+	
+}
+#footer{
+	height:65px;
+	background:#333;
+	color:#fff;
+	text-align: center;
+	}
+#footer p{
+	font: 12px/35px "";
+	height:30px;
+	}
+#footer .bx{
+	width:800px;
+	height:1px;
+	background: #fff;
+	margin: 0 auto;
+	}	

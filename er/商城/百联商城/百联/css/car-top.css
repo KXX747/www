@@ -1,0 +1,268 @@
+@charset "utf-8";
+.margin{
+	width:1000px;
+	margin:0 auto;
+}
+
+body{
+	overflow-x: hidden;
+	width:100%;
+	height:100%;
+}
+/* 头部 */
+header{
+	height: 30px;
+	background: #E7E8EA;
+	overflow: hidden;
+	font:12px/2 "";
+	line-height: 30px;
+	
+}
+header .header-l{
+	float:left;
+}
+header a{
+	margin:0 10px;
+}
+header a:hover{
+	color:#ff6a00
+}
+header .header-r{
+	float:right
+}
+
+#top{
+    /* border:1px solid red; */
+    position: relative;
+    top:50px;
+    padding-bottom:20px;
+    border-bottom:1px solid #999;
+}
+
+/* #top .logo{
+    width:286px;
+    height:52px;
+} */
+#top .logo2 {
+    float: left;
+    display: inline;
+    /* position: relative;left:170px;
+    bottom: 50px; */
+    font:28px "";
+    position: relative;
+    left:150px;
+    bottom:40px;
+    margin-left:20px;
+    color: #3e3e3e;
+
+}
+
+#top .top-r{
+    float:right;
+    display: inline;
+    font-family: "微软雅黑";
+    font: 14px "";
+    position: relative;
+    bottom:20px;
+}
+#top .top-r a{
+    color:#ff6a00
+}
+
+#main{
+    margin-top:60px;
+    
+}
+#main .main-b{
+    border-bottom:1px solid #999;
+    padding-bottom:30px;
+}
+#main .main-t-l{
+    font:500 18px "";
+    float:left;
+ 
+}
+
+#main .main-t-l span{
+    font:500 18px "";
+
+    color:red
+}
+
+#main .main-t-r{
+    font: 18px "";
+    float:right;
+}
+
+
+/* 商品详情 */
+#nav{
+    width: 990px;
+    height: 200px;
+    margin:0 auto;
+    
+}
+#nav .nav-t{
+    font-family: "werruanyahei";
+}
+
+#nav .quanxuan{
+    margin-top: 17px;
+    float: left;
+    display: inline;
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid #999;
+}
+#nav .shangpin{
+    height: 44px;
+    line-height: 44px;
+    margin-left: 10px;
+    float: left;
+    display: inline;
+    
+}
+
+#nav .item{
+    width: 390px;
+    height: auto;
+    height: 44px;
+    line-height: 44px;
+    float: left;
+    display: inline;
+    margin-left: 80px;
+}
+
+#nav .item-price{
+    width: 138px;
+    height: auto;
+    height: 44px;
+    line-height: 44px;
+    float: left;
+    display: inline;
+}
+#nav .number{
+    width: 102px;
+    height: auto;
+    height: 44px;
+    line-height: 44px;
+    float: left;
+    display: inline;
+}
+#nav .total-price{
+    width: 132px;
+    height: auto;
+    height: 44px;
+    line-height: 44px;
+    float: left;
+    display: inline;
+}
+#nav .action{
+    width: 64px;
+    height: auto;
+    height: 44px;
+    line-height: 44px;
+    float: left;
+    display: inline;
+}
+
+#nav .nav-b{
+    width: 990px;
+    height: 200px;
+    float: left;
+    display: inline;
+}
+
+#nav .nav-b i{
+    width: 63px;
+    height: 76px;
+    float: left;
+    display: inline;
+    background: url(https://img.iblimg.com/respc-1/resources/v4.0/css/i/V3empty.png) no-repeat;
+    margin: 50px 20px 0 290px;
+}
+
+#nav .nav-b .msg{
+    color: #666;
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+    float: left;
+    /* display: inline; */
+    width: 400px;
+    margin-top: 80px;
+}
+#nav .nav-b .txt{
+    color: #666;
+    font-family: "Microsoft YaHei";
+    float: left;
+    display: inline;
+    width: 400px;
+}
+#nav .nav-b .txt a{
+    color: #0077d7;
+}
+
+
+/* 尾部 */
+#food{
+
+	  width:100%; 
+	  padding: 24px 0; 
+	 height: 30px; 
+	font:12px/2 ""; 
+	float: left; 
+    line-height: 30px; 
+    padding-bottom:50px;
+}
+  #food .margin{
+	  display: flex;
+	
+}
+#food-t{
+	
+	display: flex;
+	justify-content: space-around;
+	margin-top:30px;
+	background: #f3f3f3;
+    padding: 24px 0;
+
+}
+	
+
+#food-t dl{
+	width:300px;
+	text-align: center;
+	}
+#food-t dl dt{
+	font:200 18px/3 "";
+	}
+#food-t dl dd{
+	font: 14px/2 "";
+	}
+
+#food-t dl dd:hover{
+	color:#BB0000;
+}
+.foot-b{
+
+	line-height: 24px;
+    text-align: center;
+    padding: 15px 0 0;
+    color: #999;
+	position: relative;
+	left:300px;
+	
+
+}
+.foot-b span{
+	padding: 0 8px;
+}
+
+.foot-b .margin{
+	display: flex;
+}
+.food-b dl dd a:hover{
+	color:#BB0000;
+}

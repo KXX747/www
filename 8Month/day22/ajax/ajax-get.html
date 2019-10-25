@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="a">
+    <input type="text" id="b">
+    <input type="button" id="btn" value="发送">
+</body>
+<script>
+
+    var oa = document.getElementById("a");
+    var ob = document.getElementById("b");
+    var obtn = document.getElementById("btn");
+
+    obtn.onclick = function(){
+        var url = `http://localhost/1907/ajax/data/get.php?user=${oa.value}&pass=${ob.value}`;
+
+        ajaxGet(url,function(res){
+            alert(res);
+        });
+    }
+
+
+    function ajaxGet(url,cb){
+        var xhr = new XMLHttpRequest();
+        xhr.open("get",url);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                cb(xhr.responseText)
+            }
+        }
+        xhr.send();
+    }
+
+</script>
+</html>

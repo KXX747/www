@@ -1,0 +1,3 @@
+$(".agree").on("click",function(){
+	
+})

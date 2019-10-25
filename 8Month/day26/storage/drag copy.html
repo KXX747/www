@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{width:100px;height: 100px;background: blue;position: absolute;left:0;top:0;}
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    // 拖拽
+    // 每次拖拽结束，保存位置，关闭浏览器，下次打开，还在上次的位置
+    // 多个页面，多个拖拽，又拽一个，其他跟随移动
+
+    var obox = document.getElementById("box");
+    onstorage = function(eve){
+        // 发生变化的localStorage的key
+        // console.log(eve.key);
+        // 根据key拿到当前值
+        // console.log(localStorage.getItem(eve.key));
+        // 发生变化的localStorage的key对应的上一次的值
+        // console.log(eve.oldValue)
+        // 发生变化的localStorage的key对应的这一次的值
+        // console.log(eve.newValue);
+        
+        // 每次localStorage发生变化时，获取最新的值，解析之后，设置给当前页面的元素位置
+        var pos = JSON.parse(eve.newValue);
+        obox.style.left = pos.x + "px";
+        obox.style.top = pos.y + "px";
+    }
+</script>
+</html>

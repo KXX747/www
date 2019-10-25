@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    用户名：<input type="text" id="user"><br>
+    密码：<input type="text" id="pass"><br>
+    <input type="checkbox" id="jz"><label for="jz">记住7天</label>
+    <input type="button" id="btn" value="登录">
+</body>
+<script src="../cookie.js"></script>
+<script>
+
+    var ouser = document.getElementById("user");
+    var opass = document.getElementById("pass");
+    var obtn = document.getElementById("btn");
+    var ojz = document.getElementById("jz");
+
+    //4 初始要立即读取，有就填充，没有就是空
+    var o = JSON.parse(getCookie("msg"));
+    ouser.value = o.u;
+    opass.value = o.p;
+
+
+
+    obtn.onclick = function(){
+        console.log(ojz.checked);  //选中是true
+        //1 判断是否选中复选框
+        if(ojz.checked){
+            // 2处理帐号密码
+            var obj = {
+                u:ouser.value,
+                p:opass.value
+            }
+            
+            // 3存到cookie中，设置指定的时间，打开控制台输入值有值
+            setCookie("msg",JSON.stringify(obj),{
+                expires:7
+            })
+        }
+    }
+
+</script>
+</html>

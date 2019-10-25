@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // call方法继承
+    function fn (x,y){
+        console.log("今天礼拜二");
+        console.log(this)  // window
+        console.log(x+y);  //6
+    }
+    var o ={
+        name:"admin"
+    }
+    // fn();
+    // fn.call();
+    fn.call(o,3,3);  // 指向o，改变了this的指向
+
+</script>
+</html>

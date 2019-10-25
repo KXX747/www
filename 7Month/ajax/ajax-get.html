@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		这是在测试ajax的get方法
+	</body>
+	<script type="text/javascript">
+		
+		
+		
+		document.onclick = function(){
+//			原来在form的action属性中的属性值
+			var url = "http://localhost/1906/ajax/data/get.php?user=admin&pass=123";
+			var xhr = new XMLHttpRequest();
+			xhr.open("get",url,true);
+			xhr.onreadystatechange = function(){
+//				readyState:手机设备的状态，ajax的执行状态,执行进度。0，1，2，3，4
+//				status:运营商的状态，网络的状态，http的状态。通了，空号，关机，挂了，欠费，占用
+				
+//				console.log(xhr.readyState);
+//				console.log(xhr.status);
+				if(xhr.readyState == 4 && xhr.status == 200){
+					console.log(xhr.responseText);
+				}
+			}
+			xhr.send();
+		}
+		
+//		发送:
+//			与请求方式有关:
+//				get:数据,在url上,拼接,ajax的get也是在url拼接
+//				post:
+		
+		
+		
+//		80:apache
+//		3306:mysql
+		
+		
+	</script>
+</html>

@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CSS Document */
+
+.margin{width:1190px;margin:0 auto;}
+.bj{background:url(../images/default_icon_bg.png) no-repeat;background:url(../images/mainl.bj.png) no-repeat;}
+#top{height:25px;background:#eeeeee;border-bottom:1px solid #e5e5e5;text-align:right;font:12px/25px "";}
+
+#top a{color:#333;margin:0 3px;}
+#top a.te{color:#ff6501;}
+#top span{color:#d5d5d5;margin:0 3px;}
+#top b{color:#666;margin:0 3px;}
+#top i{display:inline-block;vertical-align:middle;margin:0 3px;}
+#top i.jiantou{width:7px;height:4px;background-position:-513px 0;}
+#top i.shouji{width:10px;height:14px;background-position:-510px -13px;}
+#top i.qq{width:17px;height:19px;background-position:-503px -43px;}
+#top i.si00{width:123px;height:16px;background-position:-316px -65px;}
+
+
+#header{height:77px;}
+
+#header .logo{float:left;width:421px;height:55px;background-position:0 -7px;margin-top:11px;}
+
+#header .search{float:left;margin:16px 0 0 120px;}
+#header .search form{overflow:hidden;}
+#header .search form .txt{float:left;width:272px;height:26px;border:2px solid #d5d5d5;border-right:0}/*border-right:0 去除右边框*/
+#header .search form .sub{float:left;width:64px;height:31px;background:#3d4842;color:#fff;border:0;}
+#header .search p{font:12px/28px "";}
+#header .search p span{color:#cacaca;margin-right:6px;}
+#header .search p a{color:#898989;margin-right:3px}
+#header .shop{float:right;height:34px;width:126px;background-position:0 -64px;margin-top:20px;text-indent:46px;font:12px/34px "";}
+#header .shop a{color:#666666;}
+#header .shop span{color:#ce0002;margin:0 4px;}
+
+
+#nav{height:34px;background:#a21f25;}
+#nav .nav-l{float:left;width:190px;height:34px;background:#b9363c;}
+#nav .nav-l h3{font:700 14px/31px "";color:#FFF;text-align:center;}
+#nav .nav-l ul{height:385px;background:#1f1909;display:none;}
+#nav .nav-l ul li{}
+#nav .nav-l ul li a{display:block;color:#fff;font:12px/42px "";}
+#nav .nav-l ul li a i{display:inline-block;width:21px;height:25px;vertical-align:middle;background:url(../images/t2.png) no-repeat;margin:0 8px 0 12px;}
+#nav .nav-l ul li a i.i2{background-position:0 -25px;}
+#nav .nav-l ul li a i.i3{background-position:0 -50px;}
+#nav .nav-l ul li a i.i4{background-position:0 -75px;}
+#nav .nav-l ul li a i.i5{background-position:0 -100px;}
+#nav .nav-l ul li a i.i6{background-position:0 -125px;}
+#nav .nav-l ul li a i.i7{background-position:0 -150px;}
+#nav .nav-l ul li a i.i8{background-position:0 -175px;}
+#nav .nav-l ul li a i.i9{background-position:0 -200px;}
+#nav .nav-l:hover ul{display:block;}
+
+#nav .nav-c{float:left;}
+#nav .nav-c li{float:left;}
+#nav .nav-c li a{display:block;font:14px/34px"";color:#fff;padding:0 18px 0 13px;background:url(../images/t1.png) no-repeat right;}
+#nav .nav-c li a.last{background:none;}
+#nav .nav-c li a:hover{background:#444444;}
+#nav .nav-c li a.hot{color:#fee002;}
+
+
+#nav .nav-r{float:right;font:12px/34px "";}
+#nav .nav-r a{color:#f6e6e7;margin:0 6px;position:relative;}
+#nav .nav-r span{color:#cd9191;}
+#nav .nav-r a i{position:absolute;width:33px;height:19px;background:url(../images/youhui.gif) no-repeat -68px;right:-15px;top:-20px;}
+
+
+#banner{height:385px;background:url(../images/banner.jpg) no-repeat center;}
+
+
+#main{height:1040px;background:#f6f6f6;}
+#main a:hover{background:#444444;}
+#main b{float:left;font:777 12px/2 "";color:#000000;margin:10px 0 0 132px;}
+#main p{float:left;font:12px/2 "";color:#000000;margin:10px 0 0 20px;}
+
+#main .main-l{width:992px;height:216px;border:2px solid #dfdfdf;background:#ffffff;}

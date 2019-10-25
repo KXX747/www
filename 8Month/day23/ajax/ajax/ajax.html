@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>测试ajax的get和post</h2>
+    <input type="text" id="a">
+    <input type="text" id="b">
+    <input type="button" id="btn1" value="get发送">
+    <input type="button" id="btn2" value="post发送">
+</body>
+<script src="../ajax.js"></script>
+<script src="../jsonp.js"></script>
+<script>
+
+    var oa = document.getElementById("a");
+    var ob = document.getElementById("b");
+    var obtn1 = document.getElementById("btn1");
+    var obtn2 = document.getElementById("btn2");
+
+    obtn1.onclick = function(){
+        var url = `http://localhost/8Month/day23/ajax/data/get.php`;
+        ajax({
+            url:url,
+            success:function(res){
+                console.log(res)
+            },
+            error:function(res){
+                console.log(res)
+            }
+        })
+    }
+    obtn2.onclick = function(){
+        var url = `http://localhost/8Month/day23/ajax/data/post.php`;
+        ajax({
+            url:url,
+            success:function(res){
+                console.log(res)
+            },
+            error:function(res){
+                console.log(res)
+            },
+            data:{
+                user:oa.value,
+                pass:ob.value
+            },
+            type:"post"
+        })
+    }
+
+</script>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{width:100px;height: 100px;background: yellow;position: absolute;left:0;top:0;}
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+            // var ele = document.getElementById("box");
+    class Storage{
+        constructor(){
+            this.ele = document.getElementById("box");
+              // 因为将来准备使用事件监听式绑定事件，所以为了方便this的使用和将来删除事件，所以提前使用bind将函数处理
+            this.addEvent();
+            this.init();
+
+            //先提前绑定好this的指向问题
+            this.m = this.move.bind(this);
+            this.u = this.up.bind(this);
+
+        }
+        init(){
+            var pos = (localStorage.getItem("pos"));
+            if(pos!=null){
+            this.ele.style.top  = pos.y +"px";
+            this.ele.style.left = pos.x +"px";
+            }
+        }
+        addEvent(){
+            this.ele.addEventListener("mousedown",this.down.bind(this));// 修改this的指向
+            // console.log("addevent的指向"+this);  //object
+
+        }
+
+        // 被事件触发叫做事件处理函数，事件函数的第一个事件叫做事件对象
+        //按下事件
+        down(eve){
+            console.log(this);  // 指向实例 storage，如果没有使用bind则会指向div
+            console.log(eve); //获取事件对象，事件坐标
+
+            //设置兼容
+            var e = eve || window.event;
+            this.x = e.offsetX;
+            this.y = e.offsetY;
+
+            // document.addEventListener("mousemove",this.move.bind(this));
+            // document.addEventListener("mouseup",this.up.bind(this));
+            document.addEventListener("mousemove",this.m);
+            document.addEventListener("mouseup",this.u);
+        }
+        //移动事件,鼠标的移动
+        move(eve){
+            var e = eve || window.event;
+            //移动的事件对象-按下的坐标
+            this.ele.style.left = e.clientX - this.x + "px";
+            this.ele.style.top  = e.clientY - this.y + "px";
+
+            // 需要将坐标存储在本地上
+            var pos={
+                x:this.ele.offsetLeft,
+                y:this.ele.offsetTop
+
+            }
+            console.log("当前的坐标值="+pos.x);
+            console.log("当前的坐标值="+pos.y);
+            localStorage.setItem("pos",JSON.stringify(pos));
+            
+        }
+        //抬起  事件监听绑定和删除需要统一处理函数，因为bind会返回一个新的函数，无法找到原来的函数了
+        // 先提前解决好this的指向问题
+        up(){
+            //删除事件
+            document.removeEventListener("mousemove",this.m);
+            document.removeEventListener("mouseup",this.u);
+        }        
+    }
+            onstorage = function(eve){
+                var pos = JSON.parse(eve.newValue);
+                
+                box.style.left = pos.x + "px";
+                box.style.top = pos.y + "px";
+            }   
+
+     new Storage();
+</script>
+</html>

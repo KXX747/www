@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>测试ajax的get和post</h2>
+    <h2>测试jsonp</h2>
+    <input type="text" id="a">
+    <input type="text" id="b">
+    <input type="button" id="btn1" value="get发送">
+    <input type="button" id="btn2" value="post发送">
+    <input type="button" id="btn3" value="jsonp发送">
+</body>
+<script src="../ajax.2.0.js"></script>
+<script>
+
+    var oa = document.getElementById("a");
+    var ob = document.getElementById("b");
+    var oget = document.getElementById("btn1");
+    var opost = document.getElementById("btn2");
+    var ojsonp = document.getElementById("btn3");
+
+    oget.onclick = function(){
+        var url = `http://localhost/1907/ajax-jsonp/data/get.php`;
+        ajax({
+            url:url,
+            success:function(res){
+                console.log(res)
+            }
+        })
+    }
+    opost.onclick = function(){
+        var url = `http://localhost/1907/ajax-jsonp/data/post.php`;
+        ajax({
+            url:url,
+            success:function(res){
+                console.log(res)
+            },
+            error:function(res){
+                console.log(res)
+            },
+            data:{
+                user:oa.value,
+                pass:ob.value
+            },
+            type:"post"
+        })
+    }
+    ojsonp.onclick = function(){
+        var url = `http://127.0.0.1/1907/ajax-jsonp/data/jsonp.php`;
+        ajax({
+            url:url,
+            success:function(res){
+                console.log(res)
+            },
+            error:function(res){
+                console.log(res)
+            },
+            data:{
+                user:oa.value,
+                pass:ob.value,
+                columnName:"cb",
+                cb:"agasasd"
+            },
+            type:"jsonp",
+            timeout:2000
+        })
+    }
+
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		当前页面在测试ajax的get的封装
+	</body>
+	<script type="text/javascript">
+		
+		
+		document.onclick = function(){
+			var url = "http://localhost/1906/ajax/data/get.php";
+			ajaxGet(url,function(res){
+				console.log(res);
+			},{
+				
+			});
+		}
+		
+		function ajaxGet(url,success,data){
+//			1.data的默认参数的处理
+			data = data || {};
+//			2.要发送的数据的解析
+			var str = '';
+			for(var i in data){
+				str = str + i + "=" + data[i] + "&";
+			}
+//			key=value&key=value
+			var d = new Date();
+			url = url + "?" + str + "__qft="+d.getTime();
+			
+//			3.ajax的执行过程
+			var ajax = new XMLHttpRequest();
+			ajax.open("get",url,true);
+			ajax.onreadystatechange = function(){
+				if(ajax.readyState == 4 && ajax.status == 200){
+					success(ajax.responseText)
+				}
+			}
+			ajax.send();
+		}
+		
+		
+	</script>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="style/weibo.css" rel="stylesheet" type="text/css" />
+  <script src="./js/vue.js"></script>
+  <script src="./js/axios.js"></script>
+</head>
+
+<body>
+
+  <div class="znsArea">
+    <!--留言-->
+    <div class="takeComment">
+      <textarea v-model="ipt" name="textarea" class="takeTextField" id="tijiaoText"></textarea>
+      <div class="takeSbmComment">
+        <input type="button" class="inputs" value="" @click="add" />
+        <span>(可按 Enter 回复)</span>
+      </div>
+    </div>
+    <!--已留-->
+    <div class="commentOn">
+      <div class="noContent" v-if="list.length==0">暂无留言</div>
+      <div class="messList">
+        <div class="reply" v-for="(item,index) of list" :key="item.id">
+          <p class="replyContent">{{item.content}}</p>
+          <p class="operation">
+            <span class="replyTime">{{item.time}}</span>
+            <span class="handle">
+              <a href="javascript:;" class="top">{{item.acc}}</a>
+              <a href="javascript:;" class="down_icon">{{item.ref}}</a>
+              <a href="javascript:;" class="cut" @click="del(index,item.id)">删除</a>
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="page">
+        <a  v-for="n of page" :key="n" @click="get(n)" href="javascript:;" :class=" n === activePage ? 'active' : '' ">{{n}}</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    let vm = new Vue({
+
+      el: '.znsArea',
+
+      data: {
+        ipt: '',
+        list: [
+          // {id: 1, content: "内容", time: 234234234234, acc: 0, ref: 0}
+        ],
+        // list2:[{},{},{},{},{},{}],
+        page: 0,
+        activePage: 1
+      },
+
+      methods: {
+        add() {
+
+          //axios->php|node->mysql|mongodb->node|php->vue
+
+          axios({
+            url: 'http://localhost/3weibo/weibo.php',
+            params: {
+              act: 'add',
+              content: this.ipt
+            }
+          }).then(
+            res => {
+              /* res.data.error === 0 && this.list.unshift({
+                id: res.data.id,
+                content: this.ipt,
+                time: res.data.time,
+                acc: 0,
+                ref: 0
+              })
+              this.list.length>6 && this.list.pop() */
+
+              res.data.error === 0 && this.get(1)
+            }
+          )
+        },
+        del(index, id) { },
+        acc(index, id) { },
+        ref(index, id) { },
+        get(n){
+          console.log('get');
+          this.activePage=n;
+          axios({
+            url: 'http://localhost/3weibo/weibo.php',
+            params: {
+              act: 'get',
+              page: n,
+            }
+          }).then(
+            //[{id: ID, content: "内容", time: 时间戳, acc: 顶次数, ref: 踩次数}, {...}, ...]
+            res => this.list = res.data
+          )
+        },
+        getPage(){
+          axios({
+            url: 'http://localhost/3weibo/weibo.php',
+            params: {
+              act: 'get_page_count',
+            }
+          }).then(
+            //[{id: ID, content: "内容", time: 时间戳, acc: 顶次数, ref: 踩次数}, {...}, ...]
+            res => this.page = res.data.count
+          )
+        }
+      },
+
+      mounted(){
+        // this==vm
+        this.get(1)
+        this.getPage()
+      }
+
+    })
+    
+    
+  </script>
+</body>
+
+</html>

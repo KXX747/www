@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txt1" placeholder="日期" />
+    <input type="text" id="txt2" placeholder="天气" />
+    <input type="button" id="btn" value="发送">
+</body>
+<script type="text/javascript">
+
+        //获取元素
+        var otxt1 = document.getElementById("txt1");
+        var otxt2 = document.getElementById("txt2");
+        var obtn = document.getElementById("btn");
+
+        //设置按钮的点击事件
+        obtn.onclick = function(){
+            //链接地址
+            var url = "http://localhost/8Month/day23/work/post/ajax-post.php";
+            //设置一个函数用来接收回调函数的值
+            ajaxPost(url,function(res){
+                console.log(res)
+            },{  
+                day:otxt1.value,
+                sunday:otxt2.value,
+            });
+        }
+        // //分装post函数
+        // function ajaxPost(url,callback,data){
+            //data中获取value中的值
+            // data = data || {};
+
+            // var str = "";
+            // // 将键和值遍历出来
+            // for(var i in data){
+            //     str += `${i}=${data[i]}&`;
+            // }
+            // var d = new Date();
+			// 	// 3.URL进行拼接
+			// 	url = url + "?" + str + "__qft=" + d.getTime();
+
+            //1 创建请求对象
+        //     var ajax = new XMLHttpRequest();
+        //     // 设置请求参数
+        //     ajax.open("post",url,true);
+        //     // 3 观察状态是否接通（判断）
+        //     ajax.onreadystatechange = function(){
+        //         if(ajax.readyState==4 && ajax.status ==200){
+        //             callback(ajax.responseText);
+        //         }
+        //     }
+        //         //post 请求必须要加上这一条
+        //         ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        //         ajax.send("day=三&sunday=Sunny day");
+
+        // }
+
+
+        function ajaxPost(url,data){
+	if(!data) data = null;
+	var p = new Promise(function(success,error){
+		if(XMLHttpRequest){
+			var ajax = new XMLHttpRequest();
+		}else{
+			var ajax = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		ajax.open("POST",url,true);
+		ajax.onreadystatechange = function(){
+			if(ajax.status == 200 && ajax.readyState == 4){
+				success(ajax.responseText);
+			}
+			if(ajax.status != 200){
+				error(ajax.status);
+			}
+		}
+		ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		ajax.send(data);
+	})
+	return p;
+}
+</script>
+</html>

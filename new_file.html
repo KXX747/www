@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* div{
+            width: 300px;
+            height: 200px;
+            border: 1px solid #ccc;
+            margin:0 auto;
+            padding-left:80px;
+            padding-top:30px;
+        }
+        label{
+            height: 30px;
+            line-height:30px;
+        }
+        input[type="submit"]{
+            width:230px;
+            height: 30px;
+            line-height:30px;
+            text-align: center;
+            margin-top:10px;
+        } */
+    </style>
+
+</head>
+<body>
+<div>
+    <input class="true" id="af607f85136d4daf87792348ec0fdc9b" name="hdfsUrl" οnclick="stopTabTd(this)" value="sssss dd22asaaa44ttwss1" style=" width: 345px;">
+      
+<script>
+var outside=true
+function alertBoxFn(e) {
+outside=false
+alertBox.style.display = "block";
+}
+
+//以下两个方法用于判断是点击按钮和弹框，还是弹框外面，如果点击弹框外面隐藏弹框，注document.body必须要在文档后面写，在head写documnet.body为null
+document.body.addEventListener('click', function() {
+outside=true
+},true)
+document.body.addEventListener('click', function() {
+if(outside){
+alertBox.style.display = 'none'
+}
+})
+
+</script>
+</body>
+</html>
+

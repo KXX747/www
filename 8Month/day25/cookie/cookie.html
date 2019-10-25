@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    // setCookie("a","10",{
+    //     expires:3,
+    //     path:"/1907"】
+    // })
+    // setCookie("b","20",{
+    //     path:"/1907"
+    // })
+    // setCookie("c","30",{
+    //     expires:3
+    // })
+    // setCookie("d","40",{})
+    // setCookie("e","50")
+
+
+    function setCookie(key,val,options){
+        // 处理默认的options选项
+        options = options || {};
+        // 初始化日期和路径的字符串
+        var expires = path = "";
+        // 如果传了expires值，那么就有日期字符
+        if(options.expires){
+            var d = new Date();
+            d.setDate(d.getDate()+options.expires);
+            expires = ";expires="+d;
+        }
+        // 如果传了path值，那么就有路径字符
+        if(options.path){
+            path = ";path="+options.path;
+        }
+        document.cookie = `${key}=${val}${expires}${path}`;
+    }
+
+
+    
+    function removeCookie(key,options){
+        // 处理默认参数
+        options = options || {};
+        // 无论如何设置配置日期为-1
+        options.expires = -1;
+        // 借助设置cookie的方法
+        setCookie(key,"10",options)
+    }
+
+    // removeCookie("a",{
+    //     path:"/1907"
+    // })
+    // removeCookie("b")
+
+    // removeCookie("c")
+    // removeCookie("d")
+
+    // removeCookie("e",{
+    //     path:"/1907"
+    // })
+
+
+
+    function getCookie(key){
+        // console.log(document.cookie)
+        // 获取所有，并第一次分割，分割成每对cookie是一个数据
+        var arr = document.cookie.split("; ");
+        // 拿到每一对
+        for(var i=0;i<arr.length;i++){
+            // console.log(arr[i])
+            // 再次分割，成，名和值是两个数据，根据名字
+            if(arr[i].split("=")[0] == key){
+                // 返回对应的值
+                return arr[i].split("=")[1];
+            }
+        }
+        // 如果循环结束后，还没有返回对应的值，表示没找到，返回空字符
+        return "";
+    }
+
+    console.log(getCookie("e"));
+    console.log(getCookie("q"));
+
+</script>
+</html>

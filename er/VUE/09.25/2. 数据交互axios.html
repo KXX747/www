@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/vue.js"></script>
+  <script src="./js/axios.js"></script>
+  <script src="./js/axios-jsonp.js"></script>
+  <script>
+    // console.log(Vue);
+    // console.log(axios);
+    
+  </script>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <input type="button" value="axios_static" @click="getStatic">
+    <input type="button" value="axios_get_php" @click="getPhp">
+    <input type="button" value="axios_post_php" @click="post_php">
+
+    <input type="button" value="axios_get_node" @click="getNode">
+    
+    <input type="file" name=""  enctype="multipart/form-data" id="file">
+    <input type="button" value="axios_post_node" @click="post_node">
+
+    <input type="button" value="axios_jsonp" @click="jsonp123">
+
+    <br>
+
+    {{msg}}
+
+  </div>
+  
+  <script>
+
+    Vue.prototype.$http=axios;
+
+    let vm=new Vue({
+      el:'#app',
+      data:{
+        msg:'-'
+      },
+      methods:{
+        getStatic(){
+          axios({
+            url:'/data/user.json',
+          }).then(
+            // res=>console.log('res',res)
+            res=>this.msg=res.data.username
+          )
+        },
+        getPhp(){
+          this.$http({
+            url:'http://localhost:80/php7/get.php',
+            // method:'get'
+            params:{a:1,b:2}
+          }).then(
+            res=>console.log('php',res.data)
+          )
+        },
+        post_php(){
+
+          let params = new URLSearchParams();
+          
+          // params.append(key,value) 
+
+          params.append('a',11)
+          params.append('b',2)
+
+          axios({
+            url:'http://localhost:80/php7/post.php',
+            method:'post',
+            data:params,
+            headers:{'Content-Type':'application/x-www-form-urlencoded'}
+          }).then(
+            res=>console.log('php',res)
+          )
+
+
+        },
+
+        getNode(){
+          axios({
+            url:'http://localhost:3000/api/follow',
+            // method:'get',
+            params:{
+              _page:1,
+              _limit:1
+            },
+          }).then(
+            res=>console.log('node_get',res.data)
+          )
+        },
+
+        post_node(){
+
+          var formData = new FormData();
+
+          formData.append('username','bulala')
+          formData.append('password','bulala123')
+          formData.append('nikename','不拉拉')
+          let file = document.getElementById('file');
+          formData.append('icon',file.files[0])
+
+
+          axios({
+            url:'http://localhost:3000/api/reg',
+            method:'post',
+            /* data:{
+              username:'alex',
+              password:'alex123',
+              nikename:'艾利克斯',
+              icon:null
+            }, */
+            data:formData
+          }).then(
+            res=>console.log('node_post',res.data)
+          )
+        },
+
+        jsonp123(){
+          axios.jsonp({
+            url:'https://www.baidu.com/sugrec',
+            data:{
+              prod:'pc',
+              wd:'不拉拉',
+              cbName:'cb'
+              // cb:''
+            }
+          }).then(
+            res=>console.log(res)
+          )
+        }
+        
+      }
+    })
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>正在测试jsonp的封装2</h2>
+    <script>
+
+        document.onclick = function(){
+            var url = "http://127.0.0.1/1907/jsonp/data/jsonp2.php";
+
+            jsonp(url,function(res){
+                console.log(res)
+            },{
+                user:"admin",
+                pass:123,
+                asd:"sadaasa",       //后台要执行的函数名
+                cloumnName:"asd"       //后台接收的要执行的函数名所在的字段名
+            })
+        }
+
+        function jsonp(url,success,data){
+            // 0.解析要发送的数据
+            data = data || {};
+            var str = "";
+            for(var i in data){
+                str += `${i}=${data[i]}&`;
+            }
+            url = url + "?" + str;
+
+            // 1.创建script标签，引入外部url
+            var script = document.createElement("script");
+            script.src = url;
+            document.body.appendChild(script);
+            
+            // 2.准备jsonp要执行的函数
+            window[data[data.cloumnName]] = function(res){
+                success(res)
+            }
+        }
+
+    </script>
+</body>
+</html>

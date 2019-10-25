@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // ajax的过程
+    // 打电话
+    // 1.有手机
+    // 1.有xhr对象
+    var xhr = new XMLHttpRequest();
+    // 2.拨号（免提，号，决定异步或同步）
+    // 2.准备发送
+    xhr.open("get","http://localhost/1907/ajax/data/hello.txt",true)
+    // 3.等待，通了
+    // 3.通过事件监听状态
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4 && xhr.status == 200){
+            console.log(xhr.responseText)
+        }
+    }
+    // 4.说话
+    // 4.发送
+    xhr.send()
+
+    // 前：
+    //     发：ajax
+    //     收：ajax
+    
+</script>
+</html>

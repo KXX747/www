@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		这是在测试ajax-post的封装
+	</body>
+	<script type="text/javascript">
+		
+		
+//		ajax-post请求信息与get只有方式的区别
+		
+		document.onclick = function(){
+			var url = "http://localhost/1906/ajax/data/post.php";
+			ajaxPost(url,function(res){
+				res = JSON.parse(res)
+				console.log(res);
+			})
+		}
+		
+		
+		function ajaxPost(url,success,data){
+//			默认数据的处理
+			data = data || {};
+			
+//			将对象解析成要发送数据的格式
+			var str = "";
+			for(var i in data){
+				str += `${i}=${data[i]}&`;
+			}
+			str = str.slice(0,str.length-1);
+			
+//			开启ajax
+			var ajax = new XMLHttpRequest();
+			ajax.open("post",url,true);
+			ajax.onreadystatechange = function(){
+				if(ajax.readyState == 4 && ajax.status == 200){
+					success(ajax.responseText)
+				}
+			}
+//			post在发送信息之前,提前设置发送头信息的内容格式为表单数据格式
+			ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			
+//			post发送的信息,在send中,不在url后
+			ajax.send(str);
+		}
+		
+		
+		
+//		前端
+//			发:
+//				1.form
+//				2.ajax
+//			收:
+//				ajax
+//		
+//		后端
+//			收:
+//				$_GET,$_POST,$_REQUEST
+//			发:
+//				echo,print,die()
+//
+//		数据库
+		
+		
+		
+	</script>
+</html>

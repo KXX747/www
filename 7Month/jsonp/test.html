@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		测试ajax在浏览器中的一些问题
+	</body>
+	<script src="../ajax.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		document.onclick = function(){
+			var url = "http://127.0.0.1/1906/jsonp/data/test.php";
+			ajaxGet(url,function(res){
+				console.log(res)
+			})
+		}
+		
+//		下节课再说
+	</script>
+</html>

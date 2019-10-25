@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../css/login.css" />
+    <title>欢迎登录-百联</title>
+</head>
+<body>
+    <div id="top">
+        <div class="margin">
+            <div class="logo">
+                <a href="../index.html"><img src="https://res15.iblimg.com/respc-1/resources/v3.0/css/i/logon-logo.png" alt=""></a>
+            </div>
+            <div class="logo2">
+               <p>用户登录</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="zc-bottom">
+        <div class="margin">
+            <div class="zc-b-t">
+                <div class="zc-b-l">
+                    <p>您好，感谢你登录百联</p>
+                </div>
+                <div class="zc-b-r">
+                    <p>如有账户，请先点击<a href="../html/agree.html">注册新账号</a></p>
+                </div>
+            </div>
+        </div>
+        <div>
+        <table cellspacing="0">
+            <h3>会员登录</h3>
+                <tr>
+                    <td>用户名</td>
+                    <td>
+                        <div class="box">
+                            <input type="text" class="tex" id="userName" onblur="userName()" />
+                        <span class="sp1">用户名/手机号/邮箱</span>
+                        </div>
+                    </td>
+                    <td><span class="ts1"></span></td>
+                </tr>
+                <!-- <tr>
+                    <td>手机号</td>
+                    <td>
+                        <div class="box">
+                            <input type="text" class="tex" id="phone"  onblur="phone()" />
+                            <span class="sp2">请输入11位手机号码</span>
+                        </div>
+                    </td>
+                    <td><span class="ts2"></span></td>
+                </tr> -->
+                <tr>
+                    <td>登录密码</td>
+                    <td>
+                        <div class="box">
+                            <input type="password" class="tex" id="password" placeholder="密码" onblur="password()"/>
+                            <!-- <span class="sp4">密码</span> -->
+                        </div>
+                    </td>
+                    <td><span class="ts4"></span></td>
+                </tr>
+                
+                <tr>
+                    <td>验证码</td>
+                    <td>
+                        <div class="box"> 
+                            <input type="text" class="tex" id ="code" placeholder="请输入验证码" onblur="code()" />
+                            <b class="b">C50a</b>
+                            <!-- <span class="sp3">请输入验证码</span> -->
+                        </div>
+                    </td>
+                    <td><span class="ts3"></span></td>
+                </tr>
+                
+                <tr> <td class="forget">忘记密码？</td></tr>
+                <tr> 
+                    <td>
+                        <div class="remenber">
+                            <label for="isRemenber">是否记住用户名和密码:</label>
+                            <input type="checkbox" id="isRemenber"><br>
+                        </div>
+                        <td><span class="ts8"></span></td>
+                    </td>
+                </tr>  
+                <tr>
+                    <td colspan="3">
+                        <button id="butn">登录</button>
+                    </td>
+                </tr>
+                </table>
+            </div>
+            <div class="tanchu">
+        
+            </div>  
+        </table>
+        </div>
+    </div>
+    
+
+    </div>
+</body>
+<script src="../js/login.js"> </script>
+<script src="../js/cookie.js"></script>
+</html>

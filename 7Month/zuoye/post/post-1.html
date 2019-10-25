@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        这是一条数据查看是否接收,post的数据请求呀呀呀
+</body>
+<script>
+    document.onclick = function(){
+        var url ="http://localhost/zuoye/post/post-1.php";
+        ajaxPost(url,function(res){
+            res = JSON.parse(res);
+            console.log(res);
+        },{
+            a :"admin",
+            b : "1",
+            c :"changsha",
+            d : 18,
+        })
+    } 
+
+    function ajaxPost(url,success,data){
+        data = data || {};
+
+        var str ="";
+        for(var i in data){
+            str +=`${i}=${data[i]}$ `
+        }
+        str = str.slice(0,str.length-1);
+
+        var ajax = new XMLHttpRequest();
+        ajax.open("post",url,true);
+        ajax.onreadystatechange = function(){
+            if(ajax.readyState ==4 && ajax.status == 200){
+                success(ajax.responseText)
+
+        }
+    }
+    ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+    ajax.send(str);
+}
+</script>
+</html>

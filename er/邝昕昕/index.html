@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{margin-left:20px;}
+        p{font:600 18px "";}
+        .btn{margin-left:20px;}
+        .btn-info{background:blue;width:100px;height:40px;color:#fff;border:none;border-radius:6%;opacity: 0.7;cursor: pointer;}
+        .btn-success{background:green;width:100px;height:40px;color:#fff;border:none;border-radius:6%;opacity: 0.7;cursor: pointer;}
+        .btn-warning{background:yellow;width:100px;height:40px;color:#fff;border:none;border-radius:6%;opacity: 0.7;cursor: pointer;}
+        .btn-danger{background:red;width:100px;height:40px;color:#fff;border:none;border-radius:6%;opacity: 0.7;cursor: pointer;}
+        .btn-default{width:100px;height:40px;color:#fff;border:none;border-radius:6%;cursor: pointer;}
+        pre{background:#999;width:1300px;height:600px;margin-top:30px;padding:20px;font:16px "";border-radius:0.5%;opacity: 0.7;}
+
+        .message1{position: fixed;border:1px solid #999;width:200px;height:40px;background:gray;top:120px;left:150px;
+            border-radius:6%;opacity: 0.7;display: none;}
+        .message2{position: fixed;border:1px solid #999;width:200px;height:40px;background:green;top:120px;left:150px;
+        border-radius:6%;opacity: 0.7;display: none;}
+        .message3{position: fixed;border:1px solid #999;width:200px;height:40px;background:yellow;top:120px;left:150px;
+        border-radius:6%;opacity: 0.7;display: none;}
+        .message4{position: fixed;border:1px solid #999;width:200px;height:40px;background:red;top:120px;left:150px;
+        border-radius:6%;opacity: 0.7;display: none;}
+    </style>
+</head>
+<body>
+    <div>
+        <p>点击调用提示</p>
+        <button class="btn btn-info">信息提醒</button>
+        <div class="message1">信息提醒</div>
+        <button class="btn btn-success">成功提示</button>
+        <div class="message2">成功</div>
+        <button class="btn btn-warning">警告提示</button>
+        <div class="message3">警告提示</div>
+        <button class="btn btn-danger">失败提示</button>
+        <div class="message4">失败提示</div>
+        <button class="btn btn-default">拓展一下</button>
+    
+    </div>
+    <div>
+        <p>调用方式：</p>
+        <pre>
+                $('.btn-info').on('click',function(){
+                    $.message({
+                        message:'信息提醒',
+                        type:'info'
+                    });
+                })
+                $('.btn-success').on('click',function(){
+                    $.message({
+                        message:'成功提示',
+                        type:'success'
+                    });
+                })
+                $('.btn-warning').on('click',function(){
+                    $.message({
+                        message:'警告提示',
+                        type:'warning',
+                        duration:0,
+                        showClose:true,
+                        center:true,
+                        onClose:function(){alert('知道了')}
+                    });
+                })
+                $('.btn-danger').on('click',function(){
+                    $.message({
+                        message:'失败提示',
+                        type:'error'
+                    });
+                })
+        </pre>
+    </div>
+    <div>
+        <p>参数详解：</p>
+        <pre>
+            message:' 操作成功',    //提示信息
+            duration:'5000',       //显示时间（默认：5s）
+            type:'info',           //显示类型，包括4种：success.error,info,warning 默认info
+            showClose:false,       //显示关闭按钮（默认：否）
+            center:true,           //页面竖直居中（默认：否）
+            onClose:function,      //点击关闭回调函数
+        </pre>
+    </div>
+</body>
+<script src='./jquery.js'></script>
+<script src="message.js"></script>
+</html>

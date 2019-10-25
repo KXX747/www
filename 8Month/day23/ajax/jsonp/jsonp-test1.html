@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- <script src="http://127.0.0.1/1907/jsonp/data/jsonp.txt"></script> -->
+
+<!-- <script src="http://127.0.0.1/1907/jsonp/data/jsonp.php"></script> -->
+<script>
+    // 利用html标签可以跨域的特性，引入外部资源，绕过浏览器的安全策略，实现跨域请求信息
+    // 只要通过script标签引入，那么会将其中的信息，作为js代码执行
+    
+    // fn();
+    
+    function fn(res){
+        console.log("hello html");
+        console.log(typeof res);
+        console.log(res);
+    }
+</script>
+<script src="http://127.0.0.1/1907/jsonp/data/jsonp.php"></script>
+</html>

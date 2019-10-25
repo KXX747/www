@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href=""> -->
+</head>
+<body>
+    <!-- <a href="http://www.baidu.com">12123321</a> -->
+    <h2>测试ajax的get和post</h2>
+    <input type="text" id="a">
+    <input type="text" id="b">
+    <input type="button" id="btn1" value="get发送">
+    <input type="button" id="btn2" value="post发送">
+    <!-- <img src="https://www.baidu.com/img/bd_logo1.png" alt=""> -->
+</body>
+<!-- <script src=""></script> -->
+<script src="../ajax.js"></script>
+<script>
+
+    var oa = document.getElementById("a");
+    var ob = document.getElementById("b");
+    var obtn1 = document.getElementById("btn1");
+    var obtn2 = document.getElementById("btn2");
+
+    obtn1.onclick = function(){
+        var url = `http://localhost/1907/ajax/data/get.php`;
+        ajax({
+            url:url,
+            success:function(res){
+                console.log(res)
+            },
+            error:function(res){
+                console.log(res)
+            }
+        })
+    }
+    obtn2.onclick = function(){
+        var url = `http://localhost/1907/ajax/data/post.php`;
+        ajax({
+            url:url,
+            success:function(res){
+                console.log(res)
+            },
+            error:function(res){
+                console.log(res)
+            },
+            data:{
+                user:oa.value,
+                pass:ob.value
+            },
+            type:"post"
+        })
+    }
+
+    // 跨域问题
+    // 不同域
+    // 同域（同源）
+    // 同源策略：同协议，同域名，同端口
+
+    // 不是ajax，不是服务器，不是官方，不是我们自己
+    // 浏览器：单方面认为，如果请求一个与当前页面不同源的资源，对方如果没有明确表示允许访问，浏览器都认为不允许，会在浏览器的层面上阻止掉
+
+    // 浏览器的安全策略
+
+    // www.baidu.com
+    // map.baidu.com
+    // baike.baidu.com
+    // image.baidu.com
+
+    // 与浏览器的安全策略作斗争
+
+    // ajax引起的，浏览器绝对不允许ajax跨域
+    // 没有阻止html标签的跨域
+
+    // script
+
+    // jsonp方式
+    
+</script>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=div, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' type='text/css' href='../css/public.css'/>
+    <link rel='stylesheet' type='text/css' href='../css/agree.css'/>
+    <title>欢迎注册-百联</title>
+
+</head>
+<body style="background: #f9f9f8 !important;">
+    <div id="top">
+        <div class="margin">
+            <div class="logo">
+                <a href="../index.html"><img src="https://res15.iblimg.com/respc-1/resources/v3.0/css/i/logon-logo.png" alt=""></a>
+            </div>
+            <div class="logo2">
+                <img src="https://res12.iblimg.com/respc-1/resources/v3.0/css/i/V3login-font4.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="zc-bottom">
+        <div class="margin">
+            <div class="zc-b-t">
+                <div class="zc-b-l">
+                    <p>您好，感谢你加入百联</p>
+                </div>
+                <div class="zc-b-r">
+                    <p>如有账户，请先点击<a href="../html/login.html">登录</a></p>
+                </div>
+            </div>
+        </div>
+        <table cellspacing="0">
+                <tr>
+                    <td>用户名</td>
+                    <td>
+                        <div class="box">
+                            <input type="text" class="tex" id="userName" onblur="userName()" />
+                        <span class="sp1">6-20位字符，支持字母或字母数字组合</span>
+                        </div>
+                    </td>
+                    <td><span class="ts1"></span></td>
+                </tr>
+                <tr>
+                    <td>登录密码</td>
+                    <td>
+                        <div class="box">
+                            <input type="password" class="tex" id="password" onblur="password()"/>
+                            <span class="sp4">8-20位字符，至少使用两种字符组合</span>
+                        </div>
+                    </td>
+                    <td><span class="ts4"></span></td>
+                </tr>
+                <tr>
+                    <td>确认密码</td>
+                    <td>
+                        <div class="box">
+                            <input type="password" class="tex" id="password2" onblur="password2()"/>
+                            <span class="sp6">请再次输入密码</span>
+                        </div>
+                    </td>
+                    <td><span class="ts6"></span></td>
+                </tr>
+                <tr>
+                    <td>手机号</td>
+                    <td>
+                        <div class="box">
+                            <input type="text" class="tex" id="phone"  onblur="phone()" />
+                            <span class="sp2">请输入11位手机号码</span>
+                        </div>
+                    </td>
+                    <td><span class="ts2"></span></td>
+                </tr>
+                <tr>
+                    <td>验证码</td>
+                    <td>
+                        <div class="box"> 
+                            <input type="text" class="tex" id ="code"  onblur="code()" />
+                            <b>3678</b>
+                            <span class="sp3">请输入验证码</span>
+                        </div>
+                    </td>
+                    <td><span class="ts3"></span></td>
+                </tr>
+                <tr>
+                    <td>电子邮箱</td>
+                    <td>
+                        <div class="box"> 
+                            <input type="text" class="tex" id ="youxiang"  onblur="youxiang()" />
+                            <span class="sp5">请输入有效邮箱</span>
+                        </div>
+                    </td>
+                    <td><span class="ts5"></span></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <input type="checkbox" id="cbox" class="dian" onblur="dian()"/>
+                        <span>我已阅读并同意</span>
+                        <a href=""><span class="bd">《百联通会员注册协议》、《安付宝用户服务协议》、《安付宝隐私权政策》</span></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <button id="butn">立即注册 完成绑定</button>
+                    </td>
+                </tr>
+                </table>
+            </div>
+            <div class="tanchu">
+        
+            </div>  
+        </table>
+    </div>
+</body>
+<script src="../js/agree.js"></script>
+</html>

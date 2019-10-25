@@ -1,0 +1,38 @@
+#chaozhituan {
+  height: 290px;
+  width: 100%;
+  background: #fff;
+  margin-top: 80px; }
+  #chaozhituan .praise-l {
+    float: left;
+    margin-top: 10px; }
+  #chaozhituan .praise-r {
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 280px;
+    border-color: 1px solid #A9A9A9;
+    border-top: 1px solid #A9A9A9; }
+    #chaozhituan .praise-r ul li {
+      float: left;
+      border-right: 1px dashed #A9A9A9; }
+      #chaozhituan .praise-r ul li a:hover {
+        color: #ff5c00; }
+    #chaozhituan .praise-r .box {
+      margin-left: 10px;
+      width: 160px;
+      margin-top: 10px; }
+    #chaozhituan .praise-r img {
+      width: 140px;
+      height: 140px; }
+    #chaozhituan .praise-r .name {
+      margin-top: 10px; }
+    #chaozhituan .praise-r span {
+      margin-top: 10px;
+      font: 600 16px "";
+      color: #ff3d3d; }
+    #chaozhituan .praise-r em {
+      display: block;
+      margin-top: 5px;
+      font: 12px "";
+      color: #acacac; }

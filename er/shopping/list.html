@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="public.css">
+    <style>
+		body{background:#eaeaea;}
+		#list{ height:auto;background:#f9f9f9; overflow:hidden;}
+		#list .top{height:45px; background:#000; }
+		#list .top ul{display:flex;justify-content:space-around;}
+		#list .top ul li{float:left;width:150px;font:16px/45px "";margin: 0 27px;text-align:center;}
+		#list .top ul li a{color:#fff; display:block;width:150px;}
+		#list .top ul li a:hover{color:#69F;}
+		#list .cen .text{height:120px; background:#f9f9f9; border:1px solid #666;}
+		#list .cen .text ul{display:flex;justify-content:space-around;flex-wrap:wrap;}
+		#list .cen .text ul li{height:100px;margin:10px;}
+		#list .cen .text ul li i{font:16px/30px "";text-align:center;}
+		#list .cen .text ul li img{float:left;height:100%;width:100px;border-radius:50% 20px;}
+		#list .cen .libiao{height:30px; background:#f0f0f0; border:1px solid #666;border-top:none;display:flex;justify-content:space-around;flex-wrap:wrap;}
+		#list .cen .libiao i{font:14px/30px "";width:70px;}
+		#list .cen .libiao i:hover a{color:red;}
+		#list .cen .dizhi{overflow:hidden;border:1px solid #999; border-top:none;padding-top:20px;}
+		#list .cen .dizhi ul{float:left;overflow:hidden;margin-bottom:20px;}
+		#list .cen .dizhi ul li{float:left;width:50px;margin-left:25px;font-size:14px;}
+		#list .cen .dizhi ul li #gou{margin-left:5px;}
+		#list .cont{border:#9a9a9a 1px solid;overflow: hidden;margin:0 auto;}
+		#list .cont .goods{float:left;width:228px;border:solid 1px #9a9a9a;box-sizing:border-box;margin:12px;}
+		#list .cont .goods img{width:100%;height:180px;display: block;margin:0 auto;}
+		#list .cont .goods p{font:600 18px/30px "";color:red;margin-left:12px;}
+		#list .cont .goods span,.goods em{display:block;margin-left:12px;font:16px/30px "";color:#333;}
+		#list .cont .goods em{margin-bottom:6px;color:#9a9a9a;}
+		#list .cont .goods .foor{text-align:center;}
+		#list .cont .goods .foor i{margin:0 0 10px 10px;float:left;background: #999;width:90px;height:30px;line-height:30px;color:#fff;cursor:pointer;}
+		#list .cont .goods .foor u{margin:0 10px 10px 0;float:right;background: #999;width:90px;height:30px;line-height:30px;color:#fff;cursor:pointer;}
+		
+		</style>
+</head>
+<body>
+<div id="list">
+	<h2>这是商品列表页面<a href="car.html">去结算</a></h2>
+	<div class="top">
+		<ul>
+			<li><a href="##">女装</a></li>
+			<li><a href="##">男装</a></li>
+			<li><a href="##">箱包</a></li>
+			<li><a href="##">奢侈品</a></li>
+			<li><a href="##">保健品</a></li>
+			<li><a href="##">孕婴用品</a></li>
+		</ul>
+		
+	</div>
+	<div class="cen">
+		<div class="text">
+			<ul>
+				<li><i>品牌</i></li>
+				<li><a href="##"><img src="images/1.jpg"/></a></li>
+				<li><a href="##"><img src="images/2.jpg"/></a></li>
+				<li><a href="##"><img src="images/3.jpg"/></a></li>
+				<li><a href="##"><img src="images/4.jpg"/></a></li>
+				<li><a href="##"><img src="images/5.jpg"/></a></li>
+				<li><a href="##"><img src="images/6.jpg"/></a></li>
+				
+			</ul>
+		</div>
+		<div class="libiao">
+			<i>品牌女装</i>
+			<i><a href="##">连衣裙</a></i>
+			<i><a href="##">夏卖棉袄</a></i>
+			<i><a href="##">冬卖短袖</a></i>
+			<i><a href="##">春穿拖鞋</a></i>
+			<i><a href="##">秋披大衣</a></i>
+			<i><a href="##">早穿睡衣</a></i>
+			<i><a href="##">晚穿凉鞋</a></i>
+		</div>
+		
+		<div class="dizhi">
+			<ul>
+				<li>综合</li>
+				<li>人气<input type="checkbox" id="gou"></li>
+				<li>新品<input type="checkbox" id="gou"></li>
+			</ul>
+			<ul>
+				<li>价格<input type="checkbox" id="gou"></li>
+				<li>地址<input type="checkbox" id="gou"></li>
+				<li>销量<input type="checkbox" id="gou"></li>
+			</ul>
+			
+		</div>
+		<div class="cont">
+			<!-- <div class="box">
+				<img src="images1/5.jpg"/>
+				<p>￥23.99</p>
+				<span>商品1</span>
+				<em>好用1</em>
+				<div class="foor">
+					<i><a href="##">加入购物车</a></i>
+					<u><a href="##">查看详情</a></u>
+				</div>
+			</div> -->
+		</div>
+
+	</div>
+
+</div>
+</body>
+<script src="ajax.2.0.js"></script>
+<script>
+	class List{
+		constructor(){
+			this.url = "http://localhost/shopping/data/goods.json";
+			this.ocont = document.querySelector(".cont");
+			this.load();
+			this.addEvent();
+		}
+		load(){
+			let that = this;
+			ajax({
+				url:this.url,
+				success:function(res){
+					that.res = JSON.parse(res);
+					// console.log(res);
+					that.display();
+				}
+			})
+		}
+		//创建一个查看详情页面的按钮
+		display(){
+			let str = "";
+			for(let i=0;i<this.res.length;i++){
+				str += `<div class="goods" index="${this.res[i].goodsId}" indexs="${this.res[i].goodsIds}">
+							<img src="${this.res[i].url}"/>
+							<p>${this.res[i].price}</p>
+							<span>${this.res[i].name}</span>
+							<em>${this.res[i].tip}</em>
+							<div class="foor">
+								<i class="btn">加入购物车</i>
+								<u class="btn1">查看详情</u>
+							</div>
+						</div>`
+						
+			}
+			this.ocont.innerHTML = str;
+		}
+		addEvent(){
+			let that = this;
+			this.ocont.addEventListener("click",function(eve){
+				let e = eve || window.event;
+				let target = e.target || e.srcElement;
+				if(target.className == "btn"){
+
+					that.id = target.parentNode.parentNode.getAttribute("index");
+					
+					that.setLocal();
+				}
+				//判断点击的按钮，当点击的是查看详情的按钮时，页面进行跳转
+				if(target.className == "btn1"){
+					that.ids = target.parentNode.parentNode.getAttribute("indexs");
+					
+					that.singleLocal();
+					location = "details.html";
+				}
+			})
+		}
+		setLocal(){
+			
+			this.goods = localStorage.getItem("goods") ? JSON.parse(localStorage.getItem("goods")) : [];
+			console.log(this.goods)
+			if(this.goods.length < 1){
+				this.goods.push({
+					id:this.id,
+					num:1
+				})
+			}else{
+				let i;
+				let o = this.goods.some((val,index)=>{
+					i = index;
+					return val.id == this.id;
+				})
+				if(o){
+					this.goods[i].num++;
+				}else{
+					this.goods.push({
+						id:this.id,
+						num:1
+					})
+				}
+			}
+			localStorage.setItem("goods",JSON.stringify(this.goods));
+		}
+		// 把点击查看详情的当前商品的身份编码保存到本地存储里
+		singleLocal(){
+			// console.log(this.ids)
+			this.goods2 = [{ids:this.ids}];
+			console.log(this.goods2)
+
+			localStorage.setItem("goods2",JSON.stringify(this.goods2));
+		}
+	}
+	new List();
+</script>
+</html>

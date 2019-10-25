@@ -1,0 +1,9 @@
+.menu_detail{height:460px; padding:10px 0 0 20px;}
+.menu_detail dl{position:relative; padding-left:80px;overflow:hidden;}
+.menu_detail dt{position:absolute;left:0;top:9px;width:70px;text-align:center;font-weight:bold;
+              text-overflow:ellipsis;overflow:hidden;}
+.menu_detail dd{line-height:22px;overflow:hidden;float:left;padding:6px 0;}
+.menu_detail dd a{margin:4px 0;padding:0 10px;height:16px;border-left:1px solid #e0e0e0;}
+
+.shopdetail .menu{display: none;}
+ .shopdetail .menu_block{display:block;} 

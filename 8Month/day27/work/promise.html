@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // pending 进行中，resolved 已完成， rejected 已失效
+    var promise = new Promise(function(seccess,failed){
+        //设置延时器
+        setTimeout(function(){
+            var num = Math.floor(Math.random()*100);
+            if(num %2 === 0){
+                seccess(num);
+            }else{
+                failed(num);
+            }
+        },3000);
+    });
+    promise.then(function(num){
+        console.log("seccess"+num);
+    }).catch(function(){  //catch接收失败的值
+        console.log("failed"+num);
+    })
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var url1 = "http://localhost/1907/promise/data/get.php";
+    var url2 = "http://localhost/1907/promise/data/post.php";
+    var url3 = "http://localhost/1907/promise/data/test.php";
+
+    var p1 = ajax(url1);
+    var p2 = ajax(url2);
+    var p3 = ajax(url3);
+
+    var p = Promise.all([p1,p2,p3]);
+    p.then(function(res){
+        // console.log(res)
+        console.log("都成功了")
+    },function(res){
+        console.log(res)
+    })
+    
+    
+    function ajax(url){
+        var p = new Promise(function(success,error){
+            var ajax = new XMLHttpRequest();
+            ajax.open("post",url,true);
+            ajax.onreadystatechange = function(){
+                if(ajax.readyState == 4 && ajax.status == 200){
+                    success(ajax.responseText);
+                }else if(ajax.readyState == 4 && ajax.status != 200){
+                    error(ajax.status)
+                }
+            }
+            ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            ajax.send("user=admin&pass=123");
+        });
+        return p;
+    }
+
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    jsonp 的界面
+</body>
+<script>
+    document.onclick = function(){
+        var url ="http://localhost/zuoye/jsonp/jsonp.php";
+        jsonp(url,function(res){
+            res = JSON.parse(res);
+            console.log(res);
+        },{
+            "columnName":"cb",
+            "cb":"xxx",
+            "user":"admin",
+            "pass":123456
+        });
+    }
+
+    function jsonp(url,success,data){
+        data = data || {};
+        var str ="";
+        for(var i in data){
+            str+=`${i}=${data[i]}&`;
+        }
+        var d = new Date();
+        // url = url +"?" +str +"__qft=" + d.getTime();
+        url = url + "?" + str + "__qft=" + d.getTime();
+
+        var script = document.createElement("script");
+        script.src = url;
+        document.body.appendChild(script);
+
+        window[data[data.columnName]] = function(res){
+            success(res);
+        }
+    }
+    // console.log(jsonp);
+
+</script>
+</html>

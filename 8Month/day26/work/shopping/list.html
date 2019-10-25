@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{width:1000px;overflow: auto;border: solid 1px black;margin: 10px auto}
+
+        .box .goods{width:250px;border: solid 1px black;float: left;box-sizing: border-box;text-align: center;}
+        .goods img{width:60%;height:140px;margin-top:5px;}
+        .goods p{margin: 0;line-height: 30px;height:30px;overflow: hidden;}
+        .goods span,.goods em,.goods i{display: block;line-height: 30px;font-style: normal;}
+        .goods i{width:100px;margin: 10px auto;background: cornflowerblue;}
+    </style>
+</head>
+<body>
+    <h2>这是商品列表页面<a href="add-shopp.html">去结算</a></h2>
+    <div class="box">
+        <p>商品卖完了.....</p>
+        <!-- <div class="goods">
+            <img src="images/1.jpg" alt="">
+            <p>名字</p>
+            <span>价格</span>
+            <em>评价</em>
+            <i>加入购物车</i>
+        </div> -->
+    </div>
+</body>
+<script src="js/ajax.2.0.js"></script>
+<script>
+    class List{
+        constructor(){
+            this.url = "http://localhost/8Month/day26/work/shopping/data/goods.json";
+            this.box = document.querySelector(".box");
+
+            //1. 准备开启ajax
+            this.load();
+            // 2. 准备绑定点击事件
+            this.addEvent();
+
+        }
+        load(){
+            var that = this;
+            ajax({
+                url:this.url,
+                success:function(res){
+                   that.res = JSON.parse(res);
+                //    2.渲染页面
+                   that.display(); 
+                }
+            })
+        }
+        display(){
+            console.log(this.res);
+            var str = "";
+            for(var i=0;i<this.res.length;i++){
+                // str += `<div class="goods" index="${this.res[i].goodsID}">
+                        str += `<div class="goods" index="${this.res[i].goodsId}">
+                            <img src="${this.res[i].url}" alt="">
+                            <p>${this.res[i].name}</p>
+                            <span>${this.res[i].price}</span>
+                            <em>${this.res[i].tip}</em>
+                            <i class="btn">加入购物车</i>
+
+                        </div>`
+
+            }
+            // 将设置好的内容插入到body中
+            this.box.innerHTML = str;
+        }
+        addEvent(){
+            var that = this;
+            this.box.addEventListener("click",function(eve){
+                var e = eve || window.event;
+                var target = e.target || e.srcElement;
+                if(target.className == "btn"){
+                    //商品的唯一标注是id，提前获取
+                    that.id = target.parentNode.getAttribute("index");
+
+                    // 准备存储localstorage
+                    that.setLocal();
+                }
+            })
+        }
+        setLocal(){
+            //设置
+            this.goods = localStorage.getItem("goods")?JSON.parse(localStorage.getItem("goods")): [];
+            if(this.goods.length < 1){
+                // 第一次存直接存进来
+                this.goods.push({
+                    id:this.id,
+                    num:1
+                })
+            }else{
+                //准备重复的数据存起来求索引
+                var i;
+                //利用some遍历数组
+                //some() 方法测试是否至少有一个元素可以通过被提供的函数方法。该方法返回一个Boolean类型的值
+                var o = this.goods.some((val,index)=>{
+                    //每次将索引保存出来
+                    i = index;
+                    //如果id重复，返回true，some会进行自动停止
+                    return val.id ==this.id;
+                })
+                  // 如果some的返回值为true，表示肯定有一个值为true，那么表示有重复
+                if(o){
+                    this.goods[i].num++
+                }else{           //否则没有重复，在新增数据
+                    this.goods.push({
+                        id:this.id,
+                        num:1
+                    })
+                }
+            }
+            localStorage.setItem("goods",JSON.stringify(this.goods));
+        }
+    }
+    new List();
+</script>
+</html>

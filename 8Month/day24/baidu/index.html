@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{width:300px;margin: 10px auto;}
+        .txt{width:300px;height:40px;border:solid 1px black;}
+        .list{margin: 0;padding: 0;list-style: none;border: solid 1px black;}
+        .list li{border-bottom: solid 1px black;background: #eee;line-height: 40px;padding: 0 10px;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="text" class="txt">
+        <ul class="list"></ul>
+    </div>
+</body>
+<script src="../ajax.2.0.js"></script>
+<script>
+
+    // 绑定事件
+    // 输入数据
+    // 获取数据
+    // 请求数据
+    // 渲染页面
+    class Search{
+        constructor(){
+            this.url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su";
+            this.txt = document.querySelector(".txt");
+            this.list = document.querySelector(".list");
+
+            this.addEvent()
+        }
+        addEvent(){
+            var that = this;
+            // 绑定事件：找准事件
+            this.txt.onkeyup = function(){
+                console.log(this.value)
+                that.value = this.value;
+                // 准备请求
+                that.load()
+            }
+        }
+        load(){
+            // console.log(this.value)
+            var that = this;
+            // 开启请求
+            ajax({
+                type:"jsonp",
+                data:{
+                    columnName:"cb",
+                    cb:"asdaadsas",
+                    wd:this.value
+                },
+                success:function(res){
+                    // console.log(res.s)
+                    // 请求成功，保存数据，执行渲染页面，注意：异步
+                    that.res = res.s;
+                    that.display();
+                },
+                url:this.url
+            })
+        }
+        display(){
+            // console.log(this.res);
+            var str = "";
+            // 拼接字符串
+            this.res.forEach((val)=>{
+                str += `<li>${val}</li>`
+            })
+            // 填充到页面
+            this.list.innerHTML = str;
+        }
+    }
+
+    new Search();
+
+    // 异步
+    
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txt">
+    <ul id="list">
+    </ul>
+</body>
+<script src="../ajax.js"></script>
+<script>
+    // jsonp()
+    class Search{
+        constructor(){
+            this.url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su";
+            this.txt = document.getElementById("txt");
+            this.list = document.getElementById("list");
+
+            this.addEvent()
+        }
+        addEvent(){
+            var that = this;
+            this.txt.onkeyup = function(){
+                that.value = this.value;
+                that.load()
+            }
+        }
+        load(){
+            var that = this;
+            jsonp(this.url,function(res){
+                that.res = res;
+                that.display();
+            },{
+                columnName:"cb",
+                cb:"ajsgdajsdg",
+                wd:this.value
+            })
+        }
+        display(){
+            // console.log(this.res)
+            var str = "";
+            for(var i=0;i<this.res.s.length;i++){
+                str += `<li>${this.res.s[i]}</li>`
+            }
+            this.list.innerHTML = str;
+        }
+    }
+    new Search;
+
+    
+    // location.href = "https://www.baidu.com/s?wd=搜索关键字"
+</script>
+</html>

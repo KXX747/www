@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            *{
+                margin: 0 ; 
+                padding: 0;
+                list-style-type: none;
+            }
+            .pagWarp{
+                height: 40px;
+                box-shadow: 0 2px 5px #b6b6b6;
+                position: absolute;
+                border-radius: 2px;
+                right: 42%;
+                top: 430px;
+            }
+            #btnL,#btnR{
+                line-height: 40px;
+                cursor: pointer;
+            }
+            #btnL{
+                float: left;
+            }
+            #btnR{
+                float: right;             
+            }
+            .pagWarp ul{        
+                height: 40px;
+                margin: 0 auto;
+                float: left;
+                text-align: center;
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+            .pagWarp ul li{
+                float: left;
+                text-align: center;
+                line-height: 40px;
+                padding: 0 4px;
+            }
+            .active{
+                color: blue;
+                font-size: 30px;
+            }
+        
+            /* 商品列表样式 */
+        .list{
+            width: 80%;
+            margin: 20px auto;
+        }
+        .list:after{
+            content:'';
+            display: block;
+            clear: both;
+        }
+        .list li{
+            padding:2%;
+            width: 15%;
+            float: left;
+            height: 300px;
+            color: #666;
+            border-right: 1px solid #b6b6b6;
+              box-shadow: 2px 2px 5px #b6b6b6;  
+              margin-left: 8px;
+              margin-top: 20px;
+        }
+        .list li h2{
+            font-size: 18px;
+            text-align: center;
+            line-height: 30px;
+        }
+        .list .img{
+            width: 100%;
+            border: 1px solid #b6b6b6;
+            height: 180px;
+        }
+        .list input[type=button]{
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #b6b6b6;
+            width: 100px;
+            height: 80px;
+        }
+        </style>
+</head>
+<body>
+        <ul class="list" id="list">
+            </ul>
+            <div class="pagWarp" id="pageWarp">
+                <span id="btnL">上一页</span>
+                <ul id="page">
+                </ul>
+                <span id="btnR">下一页</span>
+            </div>
+</body>
+<script src="../../ajax.js"></script>
+<script>
+    class Page{
+        constructor(options){
+
+            this.list=options.list;
+            this.pageWarp=options.pageWarp;
+            this.left=options.left;
+            this.right=options.right;
+            this.url=options.url;
+            this.num=options.num;
+            this.index=options.index;
+
+            this.load();
+            // this.addEvent();
+
+        }
+        load(){
+            ajaxGet(this.url,(res)=>{
+                console.log(res);
+                this.res =JSON.parse(res);
+
+                this.display();
+
+                this.createPage();
+            })
+        }
+        display(){
+
+        }
+    }
+
+    new Page({
+        list:document.getElementById("list"),
+        pageWarp:document.getElementById("pageWarp"),
+        left:document.getElementById("btnL"),
+        right:document.getElementById("right"),
+        page:document.getElementById("page"),
+        url:"http://localhost/zuoye/fenye/goods.json",
+        num:1,
+        index:1
+
+    })
+
+
+</script>
+</html>

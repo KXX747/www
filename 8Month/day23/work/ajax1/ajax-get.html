@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+	<body>
+		<input type="text" id="txt1" placeholder="用户" />
+		<input type="text" id="txt2" placeholder="密码" />
+		<input type="text" id="txt3" placeholder="性别" />
+		<input type="button" id="btn" value="发送">
+	</body>
+		<script type="text/javascript">
+	
+			//获取元素
+			var otxt1 = document.getElementById("txt1");
+			var otxt2 = document.getElementById("txt2");
+			var otxt3 = document.getElementById("txt3");
+			var obtn = document.getElementById("btn");
+			
+			//2. 设置按钮获取的点击事件
+			obtn.onclick = function(){
+				//3. 链接php的数据
+				var url = "http://localhost/8Month/day23/work/ajax1/get.php";
+				//用于传值,将元素的值直接传入php中
+				ajaxGet(url,function(res){
+					console.log(res);	
+				},{
+					user:otxt1.value, //因为传输过来的变量已经有引号,所以在value的时候不需要引号
+					pass:otxt2.value,
+					six:otxt3.value
+				});
+			}
+			function ajaxGet(url,callback,data){
+				//1.解析要发送的数据
+				data = data || {};  //如果有数据生成数据,如果没有设置一个空的对象
+				var str = "";
+				// i 是键值对,data是对象
+				for(var i in data){
+					str += `${i}=${data[i]}&`;  
+				}
+				// 2. 需要处理缓存问题,拼接时间戳
+				var d = new Date();
+				// 3.URL进行拼接
+				url = url + "?" + str + "__qft=" + d.getTime();
+				// 4.开启ajax的
+				var ajax = new XMLHttpRequest();
+				ajax.open("get",url,true);
+				ajax.onreadystatechange = function(){
+					if(ajax.readyState == 4 && ajax.status == 200){
+						callback(ajax.responseText);
+					}
+				}
+				ajax.send();
+			}
+			
+		</script>
+</html>

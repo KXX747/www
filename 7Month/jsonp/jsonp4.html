@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    jsonp4的测试页面
+</body>
+<script>
+    
+    document.onclick = function(){
+        var url = "http://localhost/jsonp/data/jsonp4.php";
+        jsonp(url,function(res){
+            res = JSON.parse(res);
+            console.log(res)
+        },{
+            // 后台使用什么样的字段名,接收这个函数名
+            columnName:"cb",
+            // 此键值对，传输的是后台要执行的函数的名字
+            cb:"jasgdjsagd12345678",
+            user:"admin",
+            pass:123
+        });
+    }
+
+
+    function jsonp(url,success,data){
+        // 1.解析数据，拼接url
+        data = data || {};
+        var str = "";
+        for(var i in data){
+            str += `${i}=${data[i]}&`;
+        }
+        var d = new Date();
+        url = url + "?" + str + "__qft=" + d.getTime();
+
+        // 2.创建script标签
+        var script = document.createElement("script");
+        script.src = url;
+        document.body.appendChild(script);
+        
+        // 3.定义后台要执行的函数
+        // window[data["cb"]] = function(res){
+        // window[data.cb] = function(res){
+        // window["asgsa"] = function(res){
+        // window.asgsa = function(res){
+        window[data[data.columnName]] = function(res){
+            success(res)
+        }
+    }
+    
+
+
+
+   
+</script>
+</html>
